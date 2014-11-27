@@ -110,5 +110,67 @@ describe('test all', function(){
         ])
     })
 
+    it('should do nothing on no sort info', function(){
+        var arr = [
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ]
+
+        sorty(null, arr)
+
+        arr.should.eql([
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ])
+    })
+
+    it('should do nothing on dir=0', function(){
+        var arr = [
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ]
+
+        sorty([{ name: 'age', dir: 0}], arr)
+
+        arr.should.eql([
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ])
+
+        sorty._getSortFunctions([{ name: 'age', dir: 0}, {name: 'name', dir: -2 }])
+            .length
+            .should
+            .equal(1)
+    })
+
+    it('should skip sort dir with 0', function(){
+        var arr = [
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ]
+
+        sorty([
+            {name: 'age', dir: 0 },
+            {name: 'name', dir: 1}
+        ], arr)
+        //will sort only by name, asc
+
+        arr.should.eql([
+            { age: '15', name: 'adam'},
+            { age: '5', name: 'bob'},
+            { age: '5', name: 'mary'},
+            { age: '15', name: 'monica'}
+        ])
+    })
 
 })

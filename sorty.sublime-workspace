@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sort",
+				"sortInfo"
+			],
+			[
 				"req",
 				"request"
 			],
@@ -76,26 +80,50 @@
 	"buffers":
 	[
 		{
+			"file": "src/index.js",
+			"settings":
+			{
+				"buffer_size": 1327,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 554,
+				"buffer_size": 701,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 587,
+				"buffer_size": 3674,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "index.js",
+			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 31,
+				"buffer_size": 217,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/types.js",
+			"settings":
+			{
+				"buffer_size": 195,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/main.js",
+			"settings":
+			{
+				"buffer_size": 3468,
 				"line_ending": "Unix"
 			}
 		}
@@ -103,9 +131,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 72.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
 			[
 				"move",
 				"File: Move"
@@ -240,6 +272,9 @@
 	},
 	"file_history":
 	[
+		"/home/radu/code/sorty/src/curry.js",
+		"/home/radu/code/sorty/index.js",
+		"/home/radu/code/sorty/package.json",
 		"/home/radu/code/ZippyUI/node_modules/bower/node_modules/mout/array/sort.js",
 		"/home/radu/code/ZippyUI/node_modules/bower/node_modules/fstream/lib/socket-reader.js",
 		"/home/radu/code/ZippyUI/node_modules/bower/node_modules/stringify-object/stringify-object.js",
@@ -364,14 +399,11 @@
 		"/home/radu/code/ZippyUI/src/js/ui/ColorPicker.js",
 		"/home/radu/code/ZippyUI/src/js/dd/DragHelper.js",
 		"/home/radu/code/ZippyUI/src/js/form/NumberField.js",
-		"/home/radu/code/ZippyUI/src/js/cache/Storage.js",
-		"/home/radu/code/ZippyUI/src/js/ui/DatePicker.js",
-		"/home/radu/code/ZippyUI/src/js/ui/DatePicker.footerTpl.html",
-		"/home/radu/code/ZippyUI/src/js/util/DateUtils.js"
+		"/home/radu/code/ZippyUI/src/js/cache/Storage.js"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -403,6 +435,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getSortFnFor",
 			"getFieldSortFunction",
 			"scrollTop:",
 			"scrolltop",
@@ -529,8 +562,7 @@
 			"fromRatio",
 			"hsv:",
 			"updateSaturationOnDrag",
-			"VALIDATE",
-			"getDragEventInfo"
+			"VALIDATE"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -553,19 +585,50 @@
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
+					"file": "src/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 554,
+						"buffer_size": 1327,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								117
+								845,
+								845
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 701,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
 							]
 						],
 						"settings":
@@ -578,52 +641,91 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": ".gitignore",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 587,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "index.js",
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31,
+						"buffer_size": 3674,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29,
-								29
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"parser": "markdown",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4,
+							"target": "disk",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								217
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "src/types.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								193,
+								193
 							]
 						],
 						"settings":
@@ -635,7 +737,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "test/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3468,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3322,
+								3322
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1371.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -658,11 +791,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -699,6 +839,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"pac",
+				"package.json"
+			],
 			[
 				"sortab",
 				"src/js/data/SortableDataList.js"
@@ -1070,10 +1214,6 @@
 			[
 				"require",
 				"src/js/require.conf.js"
-			],
-			[
-				"pac",
-				"package.json"
 			],
 			[
 				"flexl",

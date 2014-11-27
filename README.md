@@ -85,8 +85,10 @@ Valid sort types for now are:
 
 The sort direction is specified in the **dir** property. Valid values are:
 
- * 1 (or 'asc')
- * -1 (or 'desc')
+ * 1 (or 'asc', or any negative number)
+ * -1 (or 'desc', or any positive number)
+
+If you specify 0 (or any valsy value) for the sort direction, the sorting will not be done for the given property, but only for all other properties.
 
 You can specify custom sort functions in the **fn** property. Those should always sort in ascending order!
 
@@ -158,6 +160,32 @@ var arr = [
 sorty(
     {name: 'name', dir: 'asc'}
 , arr)
+
+arr.should.eql([
+    { age: '15', name: 'adam'},
+    { age: '5', name: 'bob'},
+    { age: '5', name: 'mary'},
+    { age: '15', name: 'monica'}
+])
+```
+
+Specifying 0 (or any falsy value) as sort dir will skip the sort for the given property
+
+```js
+var sorty = require('sorty')
+
+var arr = [
+    { age: '5', name: 'mary'},
+    { age: '5', name: 'bob'},
+    { age: '15', name: 'monica'},
+    { age: '15', name: 'adam'}
+]
+
+sorty([
+    {name: 'age', dir: 0 },
+    {name: 'name', dir: 1}
+], arr)
+//will sort only by name, asc
 
 arr.should.eql([
     { age: '15', name: 'adam'},

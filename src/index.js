@@ -3,6 +3,10 @@
 var curry = require('./curry')
 var TYPES = require('./types')
 
+function isFn(fn){
+    return typeof fn === 'function'
+}
+
 var sorty = curry(function(sortInfo, array){
     return array.sort(getMultiSortFunction(sortInfo))
 })
@@ -16,7 +20,15 @@ var getSingleSortFunction = function(info){
     }
 
     var field = info.name
-    var dir   = info.dir === 'desc' || info.dir === -1? -1: 1
+    var dir   = info.dir === 'desc' || info.dir < 0?
+                    -1:
+                    info.dir === 'asc' || info.dir > 0?
+                        1:
+                        0
+
+    if (!dir){
+        return
+    }
 
     if (!info.fn && info.type){
         info.fn = sorty.types[info.type]
@@ -36,13 +48,17 @@ var getSingleSortFunction = function(info){
     }
 }
 
-var getMultiSortFunction = function(sortInfo){
-
+var getSortFunctions = function(sortInfo){
     if (!Array.isArray(sortInfo)){
         sortInfo = [sortInfo]
     }
 
-    var fns = sortInfo.map(getSingleSortFunction)
+    return sortInfo.map(getSingleSortFunction).filter(isFn)
+}
+
+var getMultiSortFunction = function(sortInfo){
+
+    var fns = getSortFunctions(sortInfo)
 
     return function(first, second){
         var result = 0
@@ -67,6 +83,7 @@ var getMultiSortFunction = function(sortInfo){
     }
 }
 
+sorty._getSortFunctions = getSortFunctions
 sorty.getFunction = getMultiSortFunction
 
 module.exports = sorty
