@@ -4,11 +4,6 @@ var curry = require('./curry')
 var TYPES = require('./types')
 
 var sorty = curry(function(sortInfo, array){
-
-    if (!Array.isArray(sortInfo)){
-        sortInfo = [sortInfo]
-    }
-
     return array.sort(getMultiSortFunction(sortInfo))
 })
 
@@ -43,6 +38,10 @@ var getSingleSortFunction = function(info){
 
 var getMultiSortFunction = function(sortInfo){
 
+    if (!Array.isArray(sortInfo)){
+        sortInfo = [sortInfo]
+    }
+
     var fns = sortInfo.map(getSingleSortFunction)
 
     return function(first, second){
@@ -67,5 +66,7 @@ var getMultiSortFunction = function(sortInfo){
         return result
     }
 }
+
+sorty.getFunction = getMultiSortFunction
 
 module.exports = sorty

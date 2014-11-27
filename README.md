@@ -11,6 +11,7 @@ $ npm install --save sorty
 
 ## Usage
 
+Example 1
 ```js
 var sorty = require('sorty')
 
@@ -35,6 +36,18 @@ sorty([
     {name: 'mary', age: 10}
 ]
 //)
+```
+
+Example 2
+```js
+var sort = sorty([
+    {name: 'name', dir: 'asc'},
+    {name: 'age',  dir: 'desc', type: 'number'}
+])
+
+//now sort is a function that can be passed an array to sort it
+
+sort(arr)
 ```
 
 `sorty` returns the sorted array. Under the hoods, all it does is build a composed sort function, based on the given sort info, and call `array.sort` with that function.
@@ -77,8 +90,38 @@ The sort direction is specified in the **dir** property. Valid values are:
 
 You can specify custom sort functions in the **fn** property. Those should always sort in ascending order!
 
+## API
+
+`sorty(sortInfo, array) // => sorted array` - sorty sorts the array in-place and returns it
+`sorty(sortInfo) // => fn` - returns a curried version of sorty, which can be passed in an array, and will sort it, based on the sortInfo that was specified
+`sorty.getFunction(sortInfo) // => sorting function` - sorty.getFunction returns the composed sort function, that can be used to sort an array.
+
 ## More examples
 
+
+You can get a curried version, and just pass in an array afterwards, to get back the sorted array
+```js
+var sorty = require('sorty')
+var sort  = sorty([
+    {name: 'age', fn: function(a, b){ return a*1 - b * 1}, dir: 'desc' },
+    {name: 'name', dir: 'asc'}
+])
+
+sort(arr)
+```
+
+You can get a sort function, and use it with array.sort
+```js
+var sorty = require('sorty')
+var sortFn  = sorty.getFunction([
+    {name: 'age', fn: function(a, b){ return a*1 - b * 1}, dir: 'desc' },
+    {name: 'name', dir: 'asc'}
+])
+
+arr.sort(sortFn)
+```
+
+Regular usage
 ```js
 var sorty = require('sorty')
 

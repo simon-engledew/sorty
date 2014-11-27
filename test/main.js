@@ -44,6 +44,52 @@ describe('test all', function(){
         ])
     })
 
+    it('should sort with curried fn', function(){
+        var arr = [
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ]
+
+        var sort = sorty([
+            {name: 'age', fn: function(a, b){ return a*1 - b * 1}, dir: 'desc' },
+            {name: 'name', dir: 'asc'}
+        ])
+
+        sort(arr)
+
+        arr.should.eql([
+            { age: '15', name: 'adam'},
+            { age: '15', name: 'monica'},
+            { age: '5', name: 'bob'},
+            { age: '5', name: 'mary'}
+        ])
+    })
+
+    it('should sort with sorty.getFunction', function(){
+        var arr = [
+            { age: '5', name: 'mary'},
+            { age: '5', name: 'bob'},
+            { age: '15', name: 'monica'},
+            { age: '15', name: 'adam'}
+        ]
+
+        var fn = sorty.getFunction([
+            {name: 'age', fn: function(a, b){ return a*1 - b * 1}, dir: 'desc' },
+            {name: 'name', dir: 'asc'}
+        ])
+
+        arr.sort(fn)
+
+        arr.should.eql([
+            { age: '15', name: 'adam'},
+            { age: '15', name: 'monica'},
+            { age: '5', name: 'bob'},
+            { age: '5', name: 'mary'}
+        ])
+    })
+
     it('should sort with sort info as object', function(){
         var arr = [
             { age: '5', name: 'mary'},
