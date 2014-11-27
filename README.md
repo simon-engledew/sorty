@@ -1,7 +1,7 @@
 sorty
 =====
 
-Utility for sorting object arrays on multiple fields
+> Sort object arrays on multiple properties with ease.
 
 ## Install
 
