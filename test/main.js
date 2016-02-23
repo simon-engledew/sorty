@@ -23,6 +23,27 @@ describe('test all', function(){
         ])
     })
 
+    it('should sort nested objects', function(){
+        var arr = [
+            {user: {name: 'john', age: 20}},
+            {user: {name: 'mary', age: 10}},
+            {user: {name: 'bill', age: 40}},
+            {user: {name: 'john', age: 100}}
+        ]
+
+        sorty([
+            {name: 'user.name', dir: 'asc'},
+            {name: 'user.age',  dir: 'desc', type: 'number'}
+        ], arr)
+
+        arr.should.eql([
+            {user: {name: 'bill', age: 40}},
+            {user: {name: 'john', age: 100}},
+            {user: {name: 'john', age: 20}},
+            {user: {name: 'mary', age: 10}}
+        ])
+    })
+
     it('should sort with custom fn', function(){
         var arr = [
             { age: '5', name: 'mary'},

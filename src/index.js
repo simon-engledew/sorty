@@ -2,6 +2,7 @@
 
 var curry = require('./curry')
 var TYPES = require('./types')
+var expr = require('property-expr');
 
 function isFn(fn){
     return typeof fn === 'function'
@@ -20,6 +21,8 @@ var getSingleSortFunction = function(info){
     }
 
     var field = info.name
+    var getter = expr.getter(field, true)
+
     var dir   = info.dir === 'desc' || info.dir < 0?
                     -1:
                     info.dir === 'asc' || info.dir > 0?
@@ -41,8 +44,8 @@ var getSingleSortFunction = function(info){
     var fn = info.fn
 
     return function(first, second){
-        var a = first[field]
-        var b = second[field]
+        var a = getter(first)
+        var b = getter(second)
 
         return dir * fn(a, b)
     }
